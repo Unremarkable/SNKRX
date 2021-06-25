@@ -3657,7 +3657,8 @@ function Critter:die(x, y, r, n)
 
   if main.current.player.baneling_burst then
     camera:shake(2, 0.5)
-    Area{group = main.current.effects, x = self.x, y = self.y, r = self.r, w = self.parent.area_size_m*24, color = self.color, dmg = self.parent.dmg*self.parent.area_dmg_m*0.25, parent = self.parent}
+    burst_dmg = 50 * main.current.player.baneling_burst
+    Area{group = main.current.effects, x = self.x, y = self.y, r = self.r, w = self.parent.area_size_m*24, color = self.color, dmg = burst_dmg, parent = self.parent}
     _G[random:table{'cannoneer1', 'cannoneer2'}]:play{pitch = random:float(0.95, 1.05), volume = 0.5}
   end
 end
